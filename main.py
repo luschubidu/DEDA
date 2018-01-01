@@ -1,18 +1,9 @@
 import facebook
 import re
-import requests
 import helps
 
-#alt shift e for running code (snippets) in console
-#newpi for statistical analysis
-
-#http://facebook-sdk.readthedocs.io/en/latest/install.html
-
-#https://stackoverflow.com/questions/34891784/how-to-get-all-of-the-facebook-graph-api-page-feed
-#https://stackoverflow.com/questions/32838434/how-to-get-user-posts-through-facebook-sdk-python-api/32896364#32896364
-
 #@TODO update token via https://developers.facebook.com/tools/explorer/145634995501895/
-token = "EAACEdEose0cBAJoxpMMEOKyhZCzPCZCeMa5zZBvQ4PSy8wTIAeRXCmjURXTZBC4BTY8DJ5PWDjvNmKA2ZAFsIhT2QPoRJyeCXRPu8ANYcZCKgSMqArJThKkeRFdPlLzT71pzN2o4Dj3TFKYjWUqx5EGAaEqnFK5NTwiwg76az3qamrmp8sqkfehSyKWdRfIqjfPLt6ZCDCqZBgZDZD"
+token = "EAACEdEose0cBAEa7RpbZBlUb41hayd8iRRSZA6eDip3fIVMQHamarrtRs3DF1FCasw7VnLdNCep7bgrRex9ZCe5Syz2xIkNBZBlAwSUo8yjSwEJUeAzzShm2AXeyhlniMXFQ0YLXbcH8srcj2r1dVEV81xahervwyUiDY8PtZAzFZAckZCLEUvjzVrv7x9fUSmpHeWYiFexEQZDZD"
 
 graph = facebook.GraphAPI(access_token=token, version="2.11")
 
@@ -56,6 +47,5 @@ gruene_msg = helps.getAllMessagesOfAPage(graph, page_id["Grüne"])
 
 print(cdu_msg)
 
-#http://opensourceforu.com/2016/12/analysing-sentiments-nltk/
 
 
