@@ -7,6 +7,7 @@ token = "EAACEdEose0cBAEa7RpbZBlUb41hayd8iRRSZA6eDip3fIVMQHamarrtRs3DF1FCasw7VnL
 
 graph = facebook.GraphAPI(access_token=token, version="2.11")
 
+#@TODO try to search for "Gruene" instead of "Grüne" since encoding could cause problems
 parties=["CDU", "CSU (Christlich-Soziale Union)", "SPD", "Die Linke", "AfD", "BÜNDNIS 90/DIE GRÜNEN", "FDP"]
 
 page_id = {}
