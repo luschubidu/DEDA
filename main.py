@@ -37,7 +37,7 @@ for i in range(len(parties)):
            j =j+1
 
 
-
+#@TODO maybe use one nested dict for all messages?
 cdu_msg = helps.getAllMessagesOfAPage(graph, page_id["CDU"])
 csu_msg = helps.getAllMessagesOfAPage(graph, page_id["CSU"])
 spd_msg = helps.getAllMessagesOfAPage(graph, page_id["SPD"])
