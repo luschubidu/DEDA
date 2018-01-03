@@ -48,5 +48,6 @@ gruene_msg = helps.getAllMessagesOfAPage(graph, page_id["Grüne"])
 
 print(cdu_msg)
 
+#@TODO do sentimental analysis
 
 
