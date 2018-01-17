@@ -3,7 +3,7 @@ import re
 import helps
 
 #@TODO update token via https://developers.facebook.com/tools/explorer/145634995501895/
-token = "EAACEdEose0cBAEa7RpbZBlUb41hayd8iRRSZA6eDip3fIVMQHamarrtRs3DF1FCasw7VnLdNCep7bgrRex9ZCe5Syz2xIkNBZBlAwSUo8yjSwEJUeAzzShm2AXeyhlniMXFQ0YLXbcH8srcj2r1dVEV81xahervwyUiDY8PtZAzFZAckZCLEUvjzVrv7x9fUSmpHeWYiFexEQZDZD"
+token = "EAACEdEose0cBAJoCYeT177IuDLtHJdLIGxIjKZCsvKpF8yfA1puhlZAUBztmVi0mfhsE3imv35epXDAZA5BsdSvkufowhFVB1wHYPJMM4WkwZBtkgCEfdgZBaLJm1l5qkEeEEMdZCJzw6fdTgo4MtTtZAARSZBI6ZA7ArMKT9fU8nzCmmGvNGvadHOl6gxtm5ZA3JsKzkZCaSKD9QZDZD"
 
 graph = facebook.GraphAPI(access_token=token, version="2.11")
 
@@ -46,8 +46,14 @@ fdp_msg = helps.getAllMessagesOfAPage(graph, page_id["FDP"])
 afd_msg = helps.getAllMessagesOfAPage(graph, page_id["AfD"])
 gruene_msg = helps.getAllMessagesOfAPage(graph, page_id["Grüne"])
 
-print(cdu_msg)
 
 #@TODO do sentimental analysis
+testdata = helps.getTestData()
+print(testdata.head())
 
+cdu = helps.cleanWordList(cdu_msg)
 
+#make pos / neg to 0 ad 1
+#types of words?
+
+#Dataframe bilden mit Partei und Score, die trainieren um herauszufinden, wie wahrscheinlich es ist, dass die nächste Nachricht pos / neg ist?

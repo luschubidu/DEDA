@@ -1,7 +1,8 @@
 import requests
 from nltk.tokenize import RegexpTokenizer
 from nltk.corpus import stopwords
-
+import pandas as pd
+import itertools
 
 def getAllMessagesOfAPage(graph, page_id):
     page = graph.get_object(id=page_id, fields="posts")
@@ -52,3 +53,63 @@ def cleanWordList(msg):
     print(wordsFiltered)
 
     return wordsFiltered
+
+def getTestData():
+    neg = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\SentiWS_v1.8c\\SentiWS_v1.8c_Negative.txt",
+                          sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
+    negativedata = prepareSentimentData(neg)
+
+    pos = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\SentiWS_v1.8c\\SentiWS_v1.8c_Positive.txt",
+                          sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
+    positivedata = prepareSentimentData(pos)
+
+    result = positivedata.append(negativedata, ignore_index=True)
+
+    return result
+
+def prepareSentimentData(data):
+    combinedwords = data["wordplustype"]
+    wordlist = list()
+    wordtype = list()
+
+    for combination in combinedwords:
+        comb = str(combination)
+        word = comb[:comb.find("|")]
+        ty = comb[comb.find("|") + 1:]
+
+        wordlist.append(word)
+        wordtype.append(ty)
+
+    tmp = pd.DataFrame(
+        {"word" : wordlist,
+         "type" : wordtype,
+         "polarity" : data["polarity"],
+         "sim" : data["sim"]}
+    )
+
+    tmp2 = tmp
+
+    for index, row in tmp.iterrows():
+        rsim = row["sim"]
+        simwords = str(rsim).split(",")
+
+        if("nan" not in str(simwords)):
+            pol = list(itertools.repeat(row["polarity"],simwords.__len__()))
+            t = list(itertools.repeat(row["type"],simwords.__len__()))
+
+            tmp3 = pd.DataFrame(
+                {"polarity" : pol,
+                 "type" : t,
+                 "word" : simwords
+                 }
+            )
+
+            tmp2 = tmp2.append(tmp3, ignore_index=True)
+
+    del tmp2["sim"]
+    tmp2 = tmp2[["word", "type", "polarity"]]
+
+    return tmp2
+
+
+
