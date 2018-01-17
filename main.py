@@ -56,4 +56,5 @@ cdu = helps.cleanWordList(cdu_msg)
 #make pos / neg to 0 ad 1
 #types of words?
 
+
 #Dataframe bilden mit Partei und Score, die trainieren um herauszufinden, wie wahrscheinlich es ist, dass die nächste Nachricht pos / neg ist?
