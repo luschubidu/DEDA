@@ -48,7 +48,7 @@ gruene_msg = helps.getAllMessagesOfAPage(graph, page_id["Grüne"])
 
 
 #@TODO do sentimental analysis
-testdata = helps.getTestData()
+testdata = helps.getTestDataDict()
 print(testdata.head())
 
 cdu = helps.cleanWordList(cdu_msg)

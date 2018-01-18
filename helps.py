@@ -54,20 +54,20 @@ def cleanWordList(msg):
 
     return wordsFiltered
 
-def getTestData():
+def getTestDataDict():
     neg = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\SentiWS_v1.8c\\SentiWS_v1.8c_Negative.txt",
                           sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
-    negativedata = prepareSentimentData(neg)
+    negativedata = prepareSentimentDict(neg)
 
     pos = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\SentiWS_v1.8c\\SentiWS_v1.8c_Positive.txt",
                           sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
-    positivedata = prepareSentimentData(pos)
+    positivedata = prepareSentimentDict(pos)
 
     result = positivedata.append(negativedata, ignore_index=True)
 
     return result
 
-def prepareSentimentData(data):
+def prepareSentimentDict(data):
     combinedwords = data["wordplustype"]
     wordlist = list()
     wordtype = list()
