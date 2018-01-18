@@ -111,5 +111,13 @@ def prepareSentimentDict(data):
 
     return tmp2
 
+def getTestDataSentences():
+    data = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\mlsa\\layer2.phrases.majority.txt",
+                       sep="\t", header=None, names=["sentence_ID", "phrase", "type_of_phrase"])
+
+    #TODO 1. split column phrase into phrase and polarity (=last character in the elemenet)
+    #TODO 2. remove brackets and other additional characters (only sentence left) with regex or tokenization with Vector?
+    #TODO 3. prepare dataframe only with phrases and polarity
+
 
 
