@@ -118,6 +118,7 @@ def getTestDataSentences():
     #TODO 1. split column phrase into phrase and polarity (=last character in the elemenet)
     #TODO 2. remove brackets and other additional characters (only sentence left) with regex or tokenization with Vector?
     #TODO 3. prepare dataframe only with phrases and polarity
+    
 
 
 
