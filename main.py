@@ -6,15 +6,12 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 import matplotlib.pyplot as plt
 
-#@TODO add some prints so that you see that pythons running
-
 #@TODO update token via https://developers.facebook.com/tools/explorer/145634995501895/
 
 #build connection to Facebook's API Graph
 token = "EAACEdEose0cBAFMcHyFJZANj0Cmen7ZCnH2jgZCKpUBdOdzmbVXkkEB4YZAjX5c2LKrZAbnMumIwRPZAMZBnkSFj1XTYoQ30fn6EvOL7v9Yo8a822WnYNy4ZCGll2dfGCYxEeai8cZC6XdMoPxjMHduTJyxwGwXnM8SzW3mWxXNa0Ys8UWUVxJYh1QPStPRLcJ3ZABZBpWvidGeogZDZD"
 graph = facebook.GraphAPI(access_token=token, version="2.11")
 
-#@TODO try to search for "Gruene" instead of "Grüne" since encoding could cause problems
 parties=["CDU", "CSU (Christlich-Soziale Union)", "SPD", "Die Linke", "AfD", "BÜNDNIS 90/DIE GRÜNEN", "FDP"]
 page_id = {}
 
@@ -31,7 +28,7 @@ for i in range(len(parties)):
            if (parties[i]=="CSU (Christlich-Soziale Union)"):
                key = "CSU"
            elif (parties[i]=="BÜNDNIS 90/DIE GRÜNEN"):
-               key="Grüne"
+               key="Gruene"
            elif (parties[i]=="Die Linke"):
                key="Linke"
            else:
@@ -52,7 +49,7 @@ spd_msg = helps.getAllMessagesOfAPage(graph, page_id["SPD"])
 linke_msg = helps.getAllMessagesOfAPage(graph, page_id["Linke"])
 fdp_msg = helps.getAllMessagesOfAPage(graph, page_id["FDP"])
 afd_msg = helps.getAllMessagesOfAPage(graph, page_id["AfD"])
-gruene_msg = helps.getAllMessagesOfAPage(graph, page_id["Grüne"])
+gruene_msg = helps.getAllMessagesOfAPage(graph, page_id["Gruene"])
 
 print("all messages collected")
 
