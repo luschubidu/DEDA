@@ -227,6 +227,11 @@ def getTestDataSentences():
 
 
 #for regression modeling
+def vectorize(data):
+    corpus_data_features = vectorizer.fit_transform(data)
+    return corpus_data_features
+
+
 def tokenize(text):
     tokens = nltk.word_tokenize(text)
 
@@ -238,13 +243,3 @@ vectorizer = CountVectorizer(
     lowercase=True,
     max_features=350
 )
-
-def vectorize(data):
-    corpus_data_features = vectorizer.fit_transform(data)
-    return corpus_data_features
-
-
-
-
-
-

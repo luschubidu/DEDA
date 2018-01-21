@@ -53,10 +53,6 @@ gruene_msg = helps.getAllMessagesOfAPage(graph, page_id["Gruene"])
 
 print("all messages collected")
 
-#get the corpusses (Dictionary and Sentences)
-testwords = helps.getTestDataDict()
-testsentences = helps.getTestDataSentences()
-
 #clean messages (stem words, remove stopwords)
 cdu = helps.cleanWordList(cdu_msg)
 csu = helps.cleanWordList(csu_msg)
@@ -67,6 +63,10 @@ afd = helps.cleanWordList(afd_msg)
 gruene = helps.cleanWordList(gruene_msg)
 
 print("cleaned messages")
+
+#get the corpusses (Dictionary and Sentences)
+testwords = helps.getTestDataDict()
+testsentences = helps.getTestDataSentences()
 
 #vectorize the sentences of the corpus
 v = helps.vectorize(testsentences.phrase)
