@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 #@TODO update token via https://developers.facebook.com/tools/explorer/145634995501895/
 
 #build connection to Facebook's API Graph
-token = "EAACEdEose0cBANeKuJlrS0A6ZASG08kAEV7VB417vcJWHosJdrhZB79qbyq02ZB0qRMdmet3wbCT6Nfpo4y745NU7dCLa3qWlWm9MK0NOvEk3ltZBjVzc3ZCWQ9Rfbj62w81tgz1iZBTkP9gXFF0PO0SKrxkaqaPyUmbEBAIeU8LrTzlxhWZAlzoG1dtsONFqK3InxnZBn16AwZDZD"
+token = "EAACEdEose0cBAMdT0EaHv5XeTZAwRwIZA6ZAOZClUwuvMADDmCM209jJWua8kcicQjocNS8zUEkELKl6iuCn9ruCJilN8F69DtvUkC4UREaUfzfK5liYPEiLCKl8h4MD5ZAqyOUUs80sSGwahQMS2zRYlnnFKP6BbcvnfCfR4DE6ZCcAmYUlyYhVu985kVxXREttDZB8OEJ5gZDZD"
 graph = facebook.GraphAPI(access_token=token, version="2.11")
 
 parties=["CDU", "CSU (Christlich-Soziale Union)", "SPD", "Die Linke", "AfD", "BÜNDNIS 90/DIE GRÜNEN", "FDP"]
@@ -127,15 +127,16 @@ negative_sentences.append((gruene.phrase.__len__() - sum(gruene_pred))/gruene.__
 #plot this
 X = range(7)
 p1 = plt.bar(X, negative_sentences, color = '#F20000')
-p2 = plt.bar(X, positive_sentences, color = '#00C800', bottom = negative_sentences)
 
-plt.ylabel('Sentiments in %')
+axes = plt.gca()
+axes.set_ylim([0,1])
+
+plt.ylabel('Messages with negative Sentiment in %')
 plt.title('Sentiment of facebook posts written by political parties')
 plt.xticks(X, ("CDU", "CSU", "SPD", "Linke", "FDP", "AFD", "Grüne"))
 
 for a,b in zip(X, negative_sentences):
     plt.text(a, b, str(round(b,2)), ha = "center")
 
-plt.legend((p1[0], p2[0]), ('negative Sentiment', 'positive Sentiment'))
 plt.show()
-plt.savefig(fname="Sentiments in FB")
+plt.savefig(fname="C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\Sentiments.png")
