@@ -7,6 +7,12 @@ import itertools
 from nltk.stem.snowball import GermanStemmer
 from sklearn.feature_extraction.text import CountVectorizer
 import numpy
+from pathlib import Path
+import os
+
+home = str(Path.home())
+sep = os.sep
+path = home + sep + "Downloads" + sep
 
 #get minimum 100 messages
 def getAllMessagesOfAPage(graph, page_id):
@@ -118,13 +124,13 @@ def removeStopWords(msg):
 
 def getTestDataDict():
     #get the Dictionary
-    neg = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\SentiWS_v1.8c\\SentiWS_v1.8c_Negative.txt",
+    neg = pd.read_csv(path + "SentiWS_v1.8c"+ sep + "SentiWS_v1.8c_Negative.txt",
                           sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
 
     #prepare Dictionary
     negativedata = prepareSentimentDict(neg)
 
-    pos = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\SentiWS_v1.8c\\SentiWS_v1.8c_Positive.txt",
+    pos = pd.read_csv(path + "SentiWS_v1.8c"+sep+"SentiWS_v1.8c_Positive.txt",
                           sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
 
     positivedata = prepareSentimentDict(pos)
@@ -183,7 +189,7 @@ def prepareSentimentDict(data):
 
 def getTestDataSentences():
     #get corpus of sentences
-    data = pd.read_csv("C:\\Users\\Christine\\Desktop\\Studium\\DEDA\\mlsa\\layer2.phrases.majority.txt",
+    data = pd.read_csv(path + "mlsa"+ sep + "layer2.phrases.majority.txt",
                        sep="\t", header=None, names=["sentence_ID", "phrase", "type_of_phrase"])
 
     phrases = data.phrase
@@ -213,9 +219,9 @@ def getTestDataSentences():
 
         #concatenate the words
         for elem in ph:
-            tmp = " ".join(elem)
+            tmp = tmp + " " + elem
 
-        phrase.append(tmp)
+        phrase.append(tmp[1:])
         polarity.append(pol)
 
     testdata = pd.DataFrame({
@@ -243,3 +249,4 @@ vectorizer = CountVectorizer(
     lowercase=True,
     max_features=350
 )
+

@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 #@TODO update token via https://developers.facebook.com/tools/explorer/145634995501895/
 
 #build connection to Facebook's API Graph
-token = "EAACEdEose0cBAFMcHyFJZANj0Cmen7ZCnH2jgZCKpUBdOdzmbVXkkEB4YZAjX5c2LKrZAbnMumIwRPZAMZBnkSFj1XTYoQ30fn6EvOL7v9Yo8a822WnYNy4ZCGll2dfGCYxEeai8cZC6XdMoPxjMHduTJyxwGwXnM8SzW3mWxXNa0Ys8UWUVxJYh1QPStPRLcJ3ZABZBpWvidGeogZDZD"
+token = "EAACEdEose0cBANeKuJlrS0A6ZASG08kAEV7VB417vcJWHosJdrhZB79qbyq02ZB0qRMdmet3wbCT6Nfpo4y745NU7dCLa3qWlWm9MK0NOvEk3ltZBjVzc3ZCWQ9Rfbj62w81tgz1iZBTkP9gXFF0PO0SKrxkaqaPyUmbEBAIeU8LrTzlxhWZAlzoG1dtsONFqK3InxnZBn16AwZDZD"
 graph = facebook.GraphAPI(access_token=token, version="2.11")
 
 parties=["CDU", "CSU (Christlich-Soziale Union)", "SPD", "Die Linke", "AfD", "BÜNDNIS 90/DIE GRÜNEN", "FDP"]
