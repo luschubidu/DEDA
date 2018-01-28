@@ -7,4 +7,4 @@ PLEASE FIRST DOWNLOAD "SentiWS_v1.8c" AND "mlsa". MAKE SURE THAT THE FOLDERS ARE
 
 Python 3.5.4 required!
 
-To download Facebooks Graph API package properly, see http://facebook-sdk.readthedocs.io/en/latest/install.html and install latest version from GitHub! 
+To install Facebooks Graph API package for python properly, see http://facebook-sdk.readthedocs.io/en/latest/install.html and install latest version from GitHub! 
