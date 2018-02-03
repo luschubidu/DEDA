@@ -122,22 +122,22 @@ def removeStopWords(msg):
 
     return wordsFiltered
 
-def getTestDataDict():
-    #get the Dictionary
-    neg = pd.read_csv(path + "SentiWS_v1.8c"+ sep + "SentiWS_v1.8c_Negative.txt",
-                          sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
+#def getTestDataDict():
+#    #get the Dictionary
+#    neg = pd.read_csv(path + "SentiWS_v1.8c"+ sep + "SentiWS_v1.8c_Negative.txt",
+#                          sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
 
     #prepare Dictionary
-    negativedata = prepareSentimentDict(neg)
+#    negativedata = prepareSentimentDict(neg)
 
-    pos = pd.read_csv(path + "SentiWS_v1.8c"+sep+"SentiWS_v1.8c_Positive.txt",
-                          sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
+#    pos = pd.read_csv(path + "SentiWS_v1.8c"+sep+"SentiWS_v1.8c_Positive.txt",
+#                          sep="\t", header=None, names=["wordplustype", "polarity", "sim"])
 
-    positivedata = prepareSentimentDict(pos)
+#    positivedata = prepareSentimentDict(pos)
 
-    result = positivedata.append(negativedata, ignore_index=True)
+#    result = positivedata.append(negativedata, ignore_index=True)
 
-    return result
+#    return result
 
 def prepareSentimentDict(data):
     combinedwords = data["wordplustype"]

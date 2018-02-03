@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 #@TODO update token via https://developers.facebook.com/tools/explorer/145634995501895/
 
 #build connection to Facebook's API Graph
-token = "EAACEdEose0cBAMdT0EaHv5XeTZAwRwIZA6ZAOZClUwuvMADDmCM209jJWua8kcicQjocNS8zUEkELKl6iuCn9ruCJilN8F69DtvUkC4UREaUfzfK5liYPEiLCKl8h4MD5ZAqyOUUs80sSGwahQMS2zRYlnnFKP6BbcvnfCfR4DE6ZCcAmYUlyYhVu985kVxXREttDZB8OEJ5gZDZD"
+token = "EAACEdEose0cBAAh6p4d5LaSH3PwjlXFBnHdXgg0GsQkpIdw8GZAtuMtITBXSnQzrBj9iZBrV2exMCEwmrKcwZBLlkkBJBPgIXZCPFxZAMKmnbttLakjZBzPtJmstGOAc1KqYQRIdYvr2P5z5tKP86K4Mc3sJZBwRLkewboFNDiv1bPJmPVsRV33wmhbc0axbmLmuMkIekiDxwZDZD"
 graph = facebook.GraphAPI(access_token=token, version="2.11")
 
 parties=["CDU", "CSU (Christlich-Soziale Union)", "SPD", "Die Linke", "AfD", "BÜNDNIS 90/DIE GRÜNEN", "FDP"]
@@ -65,7 +65,7 @@ gruene = helps.cleanWordList(gruene_msg)
 print("cleaned messages")
 
 #get the corpusses (Dictionary and Sentences)
-testwords = helps.getTestDataDict()
+#testwords = helps.getTestDataDict()
 testsentences = helps.getTestDataSentences()
 
 #vectorize the sentences of the corpus
